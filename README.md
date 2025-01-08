@@ -7,4 +7,4 @@
 </p>
 <hr>
 
-```Neste repositório será feito a base de uma estrutura em C# utilizando .NET.```
+```Neste repositório será feito a base de uma estrutura em C# utilizando .NET (v8.0).```
