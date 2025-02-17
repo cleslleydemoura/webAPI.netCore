@@ -64,3 +64,23 @@
 ```dotnet ef database update```
 <p>Aplica todas as migrações pendentes ao banco de dados, garantindo que ele esteja sincronizado com o modelo definido no código da aplicação.</p>
 
+<p>Em casos de problemas de compilação por conflitos entre o código e o banco de Dados, devem ser levado em consideração se o ApplicationDBContext está de acordo com as tabelas do Banco.</p>
+<p> Códigos de limpeza e recompilação do projeto, respectivamente: </p>
+<ul>
+  <li>
+    
+    dotnet clean
+  </li>
+  <li>
+
+    dotnet build
+  </li>
+</ul>
+
+<p>Caso tenha alterações na estrutura de tabelas ou novas migrações, atualize o banco com: </p>
+<ul>
+  <li>
+
+    dotnet ef database update
+  </li>
+</ul>
