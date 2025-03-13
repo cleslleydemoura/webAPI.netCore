@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Stock;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,6 +39,17 @@ namespace api.Controllers
             }
 
             return Ok(stock);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateStockRequestDto stockDto)
+        // A API espera que o user envie os dados em formato JSON no corpo da requisição.
+        {
+            var stockModel = stockDto.ToStockFromCreateDto();
+            _context.Stock.Add(stockModel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
+            // Basicamente executa o método acima 'GetById' e vai passar o objeto para lá, criando um Id para o novo objeto.
         }
     }
 }
